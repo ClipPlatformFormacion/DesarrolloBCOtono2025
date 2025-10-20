@@ -17,6 +17,8 @@ page 50100 "Course List"
                 field("Duration (hours)"; Rec."Duration (hours)") { }
                 field(Price; Rec.Price) { }
                 field("Language Code"; Rec."Language Code") { }
+                field("Type (Option)"; Rec."Type (Option)") { }
+                field("Type (Enum)"; Rec."Type (Enum)") { }
             }
         }
     }

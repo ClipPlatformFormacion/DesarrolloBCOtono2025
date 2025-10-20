@@ -11,6 +11,11 @@ table 50100 Course
         {
             TableRelation = Language;
         }
+        field(7; "Type (Option)"; Option)
+        {
+            OptionMembers = " ","Instructor-Lead","Video Tutorial";
+        }
+        field(8; "Type (Enum)"; Enum "Course Type") { }
     }
 
     keys
