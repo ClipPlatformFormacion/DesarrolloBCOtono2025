@@ -7,6 +7,17 @@ table 50100 Course
         field(3; "Content Description"; Text[2048]) { }
         field(4; "Duration (hours)"; Integer) { }
         field(5; Price; Decimal) { }
-        field(6; "Language Code"; Code[10]) { }
+        field(6; "Language Code"; Code[10])
+        {
+            TableRelation = Language;
+        }
+    }
+
+    keys
+    {
+        key(PK; "No.")
+        {
+            Clustered = true;
+        }
     }
 }
