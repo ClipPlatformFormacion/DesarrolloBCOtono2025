@@ -1,9 +1,9 @@
 page 50101 "Course Card"
 {
-    CaptionML = ENU = 'Course', ESP = 'Curso';
+    CaptionML = ENU = 'Course Card', ESP = 'Ficha curso';
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = None;
     SourceTable = Course;
 
     layout
