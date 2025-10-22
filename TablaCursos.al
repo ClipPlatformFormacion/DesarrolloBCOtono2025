@@ -39,6 +39,12 @@ table 50100 Course
         {
             CaptionML = ENU = 'Type (Enum)', ESP = 'Tipo (Enum)';
         }
+        field(56; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            Editable = false;
+            TableRelation = "No. Series";
+        }
     }
 
     keys
@@ -48,4 +54,31 @@ table 50100 Course
             Clustered = true;
         }
     }
+
+    procedure AssistEdit(OldRes: Record Course) Result: Boolean
+    var
+        IsHandled: Boolean;
+        Res: Record Course;
+        ResSetup: Record "Resources Setup";
+        NoSeries: Codeunit "No. Series";
+    begin
+        IsHandled := false;
+        OnBeforeAssistEdit(Rec, OldRes, IsHandled, Result);
+        if IsHandled then
+            exit(Result);
+
+        Res := Rec;
+        ResSetup.Get();
+        ResSetup.TestField("Resource Nos.");
+        if NoSeries.LookupRelatedNoSeries(ResSetup."Resource Nos.", OldRes."No. Series", Res."No. Series") then begin
+            Res."No." := NoSeries.GetNextNo(Res."No. Series");
+            Rec := Res;
+            exit(true);
+        end;
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeAssistEdit(var Resource: Record Course; xOldRes: Record Course; var IsHandled: Boolean; var Result: Boolean)
+    begin
+    end;
 }
