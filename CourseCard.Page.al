@@ -26,6 +26,10 @@ page 50101 "Course Card"
                     Importance = Promoted;
                 }
             }
+            part(CourseEditionsPart; "Course Edition List")
+            {
+                SubPageLink = "Course No." = field("No.");
+            }
             group(Training)
             {
                 CaptionML = ENU = 'Training', ESP = 'Detalles formativos';
