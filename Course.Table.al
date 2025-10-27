@@ -7,12 +7,13 @@ table 50100 Course
         field(1; "No."; Code[20])
         {
             CaptionML = ENU = 'No.', ESP = 'Nº';
+            ToolTipML = ENU = 'This is the primary key of the table', ESP = 'Esta es la clave primaria de la tabla';
 
             trigger OnValidate()
             var
-                IsHandled: Boolean;
                 ResSetup: Record "Courses Setup";
                 NoSeries: Codeunit "No. Series";
+                IsHandled: Boolean;
             begin
                 IsHandled := false;
                 OnBeforeValidateNo(Rec, xRec, IsHandled);
@@ -76,12 +77,9 @@ table 50100 Course
     trigger OnInsert()
     var
         Resource: Record Resource;
-#if not CLEAN24        
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-#endif
-        IsHandled: Boolean;
         ResSetup: Record "Courses Setup";
         NoSeries: Codeunit "No. Series";
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         OnBeforeOnInsert(Rec, IsHandled, xRec);
@@ -91,31 +89,23 @@ table 50100 Course
         if "No." = '' then begin
             ResSetup.Get();
             ResSetup.TestField("Course Nos.");
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries(ResSetup."Course Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                "No. Series" := ResSetup."Course Nos.";
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
+            "No. Series" := ResSetup."Course Nos.";
+            if NoSeries.AreRelated("No. Series", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeries.GetNextNo("No. Series");
+            Resource.ReadIsolation(IsolationLevel::ReadUncommitted);
+            Resource.SetLoadFields("No.");
+            while Resource.Get("No.") do
                 "No." := NoSeries.GetNextNo("No. Series");
-                Resource.ReadIsolation(IsolationLevel::ReadUncommitted);
-                Resource.SetLoadFields("No.");
-                while Resource.Get("No.") do
-                    "No." := NoSeries.GetNextNo("No. Series");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", ResSetup."Course Nos.", 0D, "No.");
-            end;
-#endif
         end;
     end;
 
     procedure AssistEdit(OldRes: Record Course) Result: Boolean
     var
-        IsHandled: Boolean;
         Res: Record Course;
         ResSetup: Record "Courses Setup";
         NoSeries: Codeunit "No. Series";
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         OnBeforeAssistEdit(Rec, OldRes, IsHandled, Result);
