@@ -1,7 +1,7 @@
-page 50103 "Course Edition List"
+page 50104 "Course Edition FactBox"
 {
     CaptionML = ENU = 'Course Editions', ESP = 'Ediciones curso';
-    PageType = List;
+    PageType = ListPart;
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = "Course Edition";

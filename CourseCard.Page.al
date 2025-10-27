@@ -26,7 +26,7 @@ page 50101 "Course Card"
                     Importance = Promoted;
                 }
             }
-            part(CourseEditionsPart; "Course Edition List")
+            part(CourseEditionsPart; "Course Edition Factbox")
             {
                 SubPageLink = "Course No." = field("No.");
             }
