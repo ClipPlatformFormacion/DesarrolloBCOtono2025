@@ -52,6 +52,7 @@ page 50100 "Course List"
                 CaptionML = ENU = 'Editions', ESP = 'Ediciones';
                 RunObject = page "Course Edition List";
                 RunPageLink = "Course No." = field("No.");
+                Image = ListPage;
                 // Promoted = true;
                 // PromotedCategory = category4;
                 // PromotedOnly = true;
