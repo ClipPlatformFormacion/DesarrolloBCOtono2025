@@ -1,6 +1,6 @@
 table 50101 "Courses Setup"
 {
-    CaptionML = ENU = 'Courses Setup', ESP = 'Conf. cursos';
+    Caption = 'Courses Setup', Comment = 'ESP="Conf. cursos"';
     DataClassification = CustomerContent;
     DrillDownPageID = "Courses Setup";
     LookupPageID = "Courses Setup";

@@ -1,13 +1,13 @@
 page 50100 "Course List"
 {
-    CaptionML = ENU = 'Courses', ESP = 'Cursos';
+    Caption = 'Courses', Comment = 'ESP="Cursos"';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Course;
     Editable = false;
     CardPageId = "Course Card";
-    // PromotedActionCategoriesML = ENU = 'New,Process,Report,MyCategory', ESP = 'Nuevo,Proceso,Informe,MiCategoria';
+    // PromotedActionCategories = 'New,Process,Report,MyCategory', Comment = 'ESP="Nuevo,Proceso,Informe,MiCategoria"';
 
     layout
     {
@@ -49,7 +49,7 @@ page 50100 "Course List"
         {
             action(CourseEditions)
             {
-                CaptionML = ENU = 'Editions', ESP = 'Ediciones';
+                Caption = 'Editions', Comment = 'ESP="Ediciones"';
                 RunObject = page "Course Edition List";
                 RunPageLink = "Course No." = field("No.");
                 Image = ListPage;

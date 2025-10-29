@@ -1,6 +1,6 @@
 page 50101 "Course Card"
 {
-    CaptionML = ENU = 'Course Card', ESP = 'Ficha curso';
+    Caption = 'Course Card', Comment = 'ESP="Ficha curso"';
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = None;
@@ -12,7 +12,7 @@ page 50101 "Course Card"
         {
             group(General)
             {
-                CaptionML = ENU = 'General', ESP = 'General';
+                Caption = 'General', Comment = 'ESP="General"';
                 field("No."; Rec."No.")
                 {
                     trigger OnAssistEdit()
@@ -32,7 +32,7 @@ page 50101 "Course Card"
             }
             group(Training)
             {
-                CaptionML = ENU = 'Training', ESP = 'Detalles formativos';
+                Caption = 'Training', Comment = 'ESP="Detalles formativos"';
                 field("Type (Enum)"; Rec."Type (Enum)")
                 {
                     Importance = Additional;
@@ -43,7 +43,7 @@ page 50101 "Course Card"
             }
             group(Invoicing)
             {
-                CaptionML = ENU = 'Invoicing', ESP = 'Facturación';
+                Caption = 'Invoicing', Comment = 'ESP="Facturación"';
                 field(Price; Rec.Price) { }
             }
         }
