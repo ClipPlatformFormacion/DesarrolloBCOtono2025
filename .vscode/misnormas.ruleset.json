@@ -25,6 +25,11 @@
             "id": "AS0092",
             "action": "None",
             "justification": "AppSource"
+        },
+        {
+            "id": "AS0054",
+            "action": "Warning",
+            "justification": "Temporal"
         }
     ]
 }

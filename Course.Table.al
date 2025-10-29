@@ -7,7 +7,8 @@ table 50100 Course
     {
         field(1; "No."; Code[20])
         {
-            CaptionML = ENU = 'No.', ESP = 'Nº';
+            // CaptionML = ENU = 'No.', ESP = 'Nº';
+            Caption = 'No.';
             ToolTipML = ENU = 'This is the primary key of the table', ESP = 'Esta es la clave primaria de la tabla';
 
             trigger OnValidate()
