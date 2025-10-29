@@ -28,8 +28,8 @@
         },
         {
             "id": "AS0054",
-            "action": "Warning",
-            "justification": "Temporal"
+            "action": "None",
+            "justification": "AppSource"
         }
     ]
 }

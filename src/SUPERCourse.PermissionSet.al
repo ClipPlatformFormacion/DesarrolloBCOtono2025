@@ -12,5 +12,7 @@ permissionset 50100 "SUPERCourse"
         page "Course Edition FactBox" = X,
         page "Course Edition List" = X,
         page "Course List" = X,
-        page "Courses Setup" = X;
+        page "Courses Setup" = X,
+        tabledata ClipPlatform.Customer.Customer = RIMD,
+        table ClipPlatform.Customer.Customer = X;
 }
