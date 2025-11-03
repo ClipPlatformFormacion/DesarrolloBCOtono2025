@@ -5,6 +5,9 @@ codeunit 50100 "Course Sales Management"
     var
         Course: Record Course;
     begin
+        if SalesLine.Type <> SalesLine.Type::Course then
+            exit;
+
         Course.Get(SalesLine."No.");
         Course.TestField("Gen. Prod. Posting Group");
         SalesLine.Description := Course.Name;
