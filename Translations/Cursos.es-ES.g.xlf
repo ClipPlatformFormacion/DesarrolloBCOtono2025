@@ -3,6 +3,16 @@
   <file datatype="xml" source-language="en-US" target-language="es-ES" original="Cursos">
     <body>
       <group id="body">
+        <trans-unit id="Table 1994964448 - Field 1296262074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MyField</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer - Field MyField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1994964448 - Field 3544566346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OtroCampo</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Customer - Field OtroCampo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3534050887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Course</source>
           <note from="Developer" annotates="general" priority="2">ESP="Curso"</note>
@@ -20,6 +30,11 @@
           <note from="Developer" annotates="general" priority="2">ESP="Duración (horas)"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Duration (hours) - Property Caption</note>
           <target>Duración (horas)</target>
+        </trans-unit>
+        <trans-unit id="Table 3534050887 - Field 2139693550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Gen. Prod. Posting Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3534050887 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Code</source>
@@ -73,6 +88,11 @@
           <note from="Developer" annotates="general" priority="2">ESP=" ,Guiado por Instructor,Vídeo tutorial"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Type (Option) - Property OptionCaption</note>
           <target> ,Guiado por Instructor,Vídeo tutorial</target>
+        </trans-unit>
+        <trans-unit id="Table 3534050887 - Field 236064653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field VAT Prod. Posting Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Course Edition</source>
@@ -208,6 +228,12 @@
           <note from="Developer" annotates="general" priority="2">ESP="Vídeo turorial"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Course Type - EnumValue Video Tutorial - Property Caption</note>
           <target>Vídeo turorial</target>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1710557762 - EnumValue 3534050887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1710557762">
+          <source>Course</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Curso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Sales Line Type - EnumValue Course - Property Caption</note>
+          <target>Curso</target>
         </trans-unit>
         <trans-unit id="PermissionSet 2814764504 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SUPER Courses</source>

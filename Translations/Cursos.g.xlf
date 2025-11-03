@@ -28,6 +28,11 @@
           <note from="Developer" annotates="general" priority="2">ESP="Duración (horas)"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Duration (hours) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3534050887 - Field 2139693550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Gen. Prod. Posting Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3534050887 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Code</source>
           <note from="Developer" annotates="general" priority="2">ESP="Cód. idioma"</note>
@@ -72,6 +77,11 @@
           <source> ,Instructor-Lead,Video Tutorial</source>
           <note from="Developer" annotates="general" priority="2">ESP=" ,Guiado por Instructor,Vídeo tutorial"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Type (Option) - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3534050887 - Field 236064653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field VAT Prod. Posting Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Course Edition</source>
