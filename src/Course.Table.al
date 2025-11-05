@@ -2,6 +2,7 @@ table 50100 Course
 {
     Caption = 'Course', Comment = 'ESP="Curso"';
     DataClassification = CustomerContent;
+    LookupPageId = "Course List";
 
     fields
     {
@@ -93,6 +94,12 @@ table 50100 Course
         {
             Clustered = true;
         }
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", Name, "Duration (hours)", "Type (Enum)") { }
+        fieldgroup(Brick; "No.", Name, "Language Code", "Type (Enum)") { }
     }
 
     trigger OnInsert()
