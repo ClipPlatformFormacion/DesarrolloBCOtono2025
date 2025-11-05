@@ -1,0 +1,15 @@
+{
+    "CRS.OnSaveAlFileAction": "Reorganize",
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.ReorganizeByNamespace": true,    
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${UICop}",
+        "${PerTenantExtensionCop}",
+        "${AppSourceCop}"
+    ],
+    "al.ruleSetPath": "./.vscode/misnormas.ruleset.json"
+}

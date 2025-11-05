@@ -1,0 +1,35 @@
+{
+    "name": "Mis normas personalizadas para este proyecto",
+    "rules": [
+        {
+            "id": "AA0218",
+            "action": "None",
+            "justification": "No quiero poner tantos Tooltips"
+        },
+        {
+            "id": "AS0051",
+            "action": "None",
+            "justification": "AppSource"
+        },
+        {
+            "id": "AS0052",
+            "action": "None",
+            "justification": "AppSource"
+        },
+        {
+            "id": "AS0084",
+            "action": "None",
+            "justification": "AppSource"
+        },
+        {
+            "id": "AS0092",
+            "action": "None",
+            "justification": "AppSource"
+        },
+        {
+            "id": "AS0054",
+            "action": "None",
+            "justification": "AppSource"
+        }
+    ]
+}
