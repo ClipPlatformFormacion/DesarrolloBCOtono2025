@@ -178,10 +178,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Courses Setup - Control Course Nos. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1173465396 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1173465396">
+          <source>Course Edition</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Edición curso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Receipt Line - Field Course Edition - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3059602325 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>Course Edition</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Edición curso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Cr.Memo Line - Field Course Edition - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2079186865 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>Course Edition</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Edición curso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Invoice Line - Field Course Edition - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2574427010 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Course Edition</source>
           <note from="Developer" annotates="general" priority="2">ESP="Edición curso"</note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line - Field Course Edition - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2903552224 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2903552224">
+          <source>Course Edition</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Edición curso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Line Archive - Field Course Edition - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1114148978 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>Course Edition</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Edición curso"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line - Field Course Edition - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 964565567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Course Type</source>
