@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "cdf0dc8d-a84d-4bfe-b502-fe30b78cdb22",
+      "name": "Cursos",
+      "publisher": "ClipPlatform",
+      "version": "1.0.0.0"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "26.0.0.0",
