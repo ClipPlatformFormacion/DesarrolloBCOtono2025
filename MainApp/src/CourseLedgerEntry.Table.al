@@ -28,6 +28,11 @@ table 50104 "Course Ledger Entry"
             Caption = 'Course No.';
             TableRelation = Course;
         }
+        field(6; "Course Edition"; Code[10])
+        {
+            Caption = 'Course Edition';
+            TableRelation = "Course Edition".Edition where("Course No." = field("Course No."));
+        }
         field(7; Description; Text[100])
         {
             Caption = 'Description';

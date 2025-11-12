@@ -19,27 +19,32 @@ page 50105 "Course Ledger Entries"
                 ShowCaption = false;
                 field("Posting Date"; Rec."Posting Date")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the date when the entry was posted.';
                 }
                 // field("Entry Type"; Rec."Entry Type")
                 // {
-                //     ApplicationArea = Jobs;
+                //     ApplicationArea = All;
                 //     ToolTip = 'Specifies the type of entry.';
                 // }
                 field("Document No."; Rec."Document No.")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the document number on the Course ledger entry.';
                 }
                 field("Course No."; Rec."Course No.")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the number of the Course.';
+                }
+                field("Course Edition"; Rec."Course Edition")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the edition of the Course.';
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the description of the posted entry.';
                 }
                 // field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
@@ -56,35 +61,35 @@ page 50105 "Course Ledger Entries"
                 // }                
                 field(Quantity; Rec.Quantity)
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the number of units of the item or Course specified on the line.';
                 }
                 field("Unit Price"; Rec."Unit Price")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the price of one unit of the item or Course. You can enter a price manually or have it entered according to the Price/Profit Calculation field on the related card.';
                     Visible = false;
                 }
                 field("Total Price"; Rec."Total Price")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the total price of the posted entry.';
                 }
                 field("Source Code"; Rec."Source Code")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the source code that specifies where the entry was created.';
                     Visible = false;
                 }
                 field("Reason Code"; Rec."Reason Code")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the reason code, a supplementary source code that enables you to trace the entry.';
                     Visible = false;
                 }
                 field("Entry No."; Rec."Entry No.")
                 {
-                    ApplicationArea = Jobs;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the number of the entry, as assigned from the specified number series when the entry was created.';
                 }
                 // field("Dimension Set ID"; Rec."Dimension Set ID")
@@ -193,7 +198,7 @@ page 50105 "Course Ledger Entries"
         {
             action("&Navigate")
             {
-                ApplicationArea = Jobs;
+                ApplicationArea = All;
                 Caption = 'Find entries...';
                 Image = Navigate;
                 ShortCutKey = 'Ctrl+Alt+Q';

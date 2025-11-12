@@ -78,6 +78,62 @@ codeunit 50152 "Test Cursos"
         LibraryAssert.AreEqual(SalesLine."Course Edition", SalesShipmentLine."Course Edition", 'La edición del curso en el albarán no es correcta');
     end;
 
+    [Test]
+    procedure CourseLedgerEntries()
+    var
+        Course: Record Course;
+        CourseEdition: Record "Course Edition";
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        CourseLedgerEntry: Record "Course Ledger Entry";
+        LibrarySales: Codeunit "Library - Sales";
+        LibraryAssert: Codeunit "Library Assert";
+        DocumentNo: Code[20];
+    begin
+        // [SCENARIO] Al generar un documento registrado de venta con un curso,
+        //   se genera un movimiento de curso
+
+        // [GIVEN] Un curso
+        //         Una edición del curso
+        //         Un documento de venta (cliente) para el curso y edición
+        CreateCourse(Course);
+        CourseEdition := CreateCourseEdition(Course);
+
+        LibrarySales.CreateSalesHeader(SalesHeader, Enum::"Sales Document Type"::Order, '');
+        SalesHeader.Validate("Posting Date", Today() + 1);
+        SalesHeader.Modify(true);
+        LibrarySales.CreateSalesLineSimple(SalesLine, SalesHeader);
+        SalesLine.Validate(Type, Enum::"Sales Line Type"::Course);
+        SalesLine.Validate("No.", Course."No.");
+        SalesLine.Validate("Course Edition", CourseEdition.Edition);
+        SalesLine.Validate(Quantity, 1);
+        SalesLine.Validate(Description, 'Venta de curso de prueba');
+        SalesLine.Validate("Unit Price", 500);
+        SalesLine.Modify(true);
+
+        // [WHEN] Registramos el albarán
+        DocumentNo := LibrarySales.PostSalesDocument(SalesHeader, true, false);
+
+        // [THEN] No se ha generado movimiento de curso
+        CourseLedgerEntry.SetRange("Document No.", DocumentNo);
+        LibraryAssert.AreEqual(0, CourseLedgerEntry.Count(), 'Se ha generado movimiento de curso');
+
+        // [WHEN] Registramos la factura
+        DocumentNo := LibrarySales.PostSalesDocument(SalesHeader, false, true);
+
+        // [THEN] Se ha generado movimiento de curso
+        CourseLedgerEntry.SetRange("Document No.", DocumentNo);
+        LibraryAssert.AreEqual(1, CourseLedgerEntry.Count(), 'Número de movimientos incorrecto');
+        CourseLedgerEntry.FindFirst();
+        LibraryAssert.AreEqual(Today() + 1, CourseLedgerEntry."Posting Date", 'La fecha del movimiento no es correcta');
+        LibraryAssert.AreEqual(Course."No.", CourseLedgerEntry."Course No.", 'El curso en el movimiento no es correcto');
+        LibraryAssert.AreEqual(CourseEdition.Edition, CourseLedgerEntry."Course Edition", 'La edición del curso en el movimiento no es correcta');
+        LibraryAssert.AreEqual(SalesLine.Description, CourseLedgerEntry.Description, 'La descripción del movimiento no es correcta');
+        LibraryAssert.AreEqual(SalesLine.Quantity, CourseLedgerEntry.Quantity, 'La cantidad del movimiento no es correcta');
+        LibraryAssert.AreEqual(SalesLine."Unit Price", CourseLedgerEntry."Unit Price", 'El precio unitario del movimiento no es correcto');
+        LibraryAssert.AreEqual(SalesLine."Line Amount", CourseLedgerEntry."Total Price", 'El precio total del movimiento no es correcto');
+    end;
+
     local procedure CreateCourse(var Course: Record Course)
     var
         GeneralPostingSetup: Record "General Posting Setup";

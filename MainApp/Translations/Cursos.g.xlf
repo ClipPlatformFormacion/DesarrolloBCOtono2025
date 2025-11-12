@@ -113,6 +113,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course Ledger Entry - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1316784976 - Field 1535828835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Course Edition</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course Ledger Entry - Field Course Edition - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1316784976 - Field 1667959142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Course No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -232,6 +237,11 @@
           <source>Course Ledger Entries</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Course Ledger Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1447372974 - Control 1535828835 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the edition of the Course.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Course Ledger Entries - Control Course Edition - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1447372974 - Control 1667959142 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the Course.</source>
