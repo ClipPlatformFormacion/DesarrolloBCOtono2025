@@ -48,6 +48,7 @@ codeunit 50100 "Course Sales Management"
     local procedure PostCourseJnlLine(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; GenJnlLineDocNo: Code[20]; GenJnlLineExtDocNo: Code[35]; SrcCode: Code[10])
     var
         CourseJnlLine: Record "Course Journal Line";
+        CourseJnlPostLine: Codeunit "Course Jnl.-Post Line";
         // IsHandled: Boolean;
         ShouldExit: Boolean;
     begin
@@ -67,9 +68,7 @@ codeunit 50100 "Course Sales Management"
         CourseJnlLine.CopyFromSalesLine(SalesLine);
         // OnPostResJnlLineOnAfterInit(ResJnlLine, SalesLine);
 
-        ResJnlPostLine.RunWithCheck(CourseJnlLine);
-        if JobTaskSalesLine."Job Contract Entry No." > 0 then
-            PostJobContractLine(SalesHeader, JobTaskSalesLine);
+        CourseJnlPostLine.RunWithCheck(CourseJnlLine);
 
         // OnAfterPostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, ResJnlLine);
     end;

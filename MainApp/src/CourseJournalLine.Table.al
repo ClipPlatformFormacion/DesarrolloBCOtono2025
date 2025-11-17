@@ -226,11 +226,8 @@ table 50105 "Course Journal Line"
     var
         ResJnlTemplate: Record "Res. Journal Template";
         ResJnlBatch: Record "Res. Journal Batch";
-        ResJnlLine: Record "Res. Journal Line";
-        Res: Record Course;
-        WorkType: Record "Work Type";
         GLSetup: Record "General Ledger Setup";
-        DimMgt: Codeunit DimensionManagement;
+        // DimMgt: Codeunit DimensionManagement;
         GLSetupRead: Boolean;
 
     procedure EmptyLine(): Boolean

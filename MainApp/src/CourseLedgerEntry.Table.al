@@ -198,26 +198,26 @@ table 50104 "Course Ledger Entry"
         exit(FindRecordManagement.GetLastEntryIntFieldValue(Rec, FieldNo("Entry No.")))
     end;
 
-    procedure CopyFromResJnlLine(ResJnlLine: Record "Res. Journal Line")
+    procedure CopyFromResJnlLine(CourseJnlLine: Record "Course Journal Line")
     begin
-        "Document No." := ResJnlLine."Document No.";
-        "External Document No." := ResJnlLine."External Document No.";
-        "Posting Date" := ResJnlLine."Posting Date";
-        "Document Date" := ResJnlLine."Document Date";
+        "Document No." := CourseJnlLine."Document No.";
+        "External Document No." := CourseJnlLine."External Document No.";
+        "Posting Date" := CourseJnlLine."Posting Date";
+        "Document Date" := CourseJnlLine."Document Date";
         // "Course No." := ResJnlLine."Course No.";        
-        Description := ResJnlLine.Description;
-        Quantity := ResJnlLine.Quantity;
-        "Unit Price" := ResJnlLine."Unit Price";
-        "Total Price" := ResJnlLine."Total Price";
+        Description := CourseJnlLine.Description;
+        Quantity := CourseJnlLine.Quantity;
+        "Unit Price" := CourseJnlLine."Unit Price";
+        "Total Price" := CourseJnlLine."Total Price";
         // "Global Dimension 1 Code" := ResJnlLine."Shortcut Dimension 1 Code";
         // "Global Dimension 2 Code" := ResJnlLine."Shortcut Dimension 2 Code";
         // "Dimension Set ID" := ResJnlLine."Dimension Set ID";
-        "Source Code" := ResJnlLine."Source Code";
-        "Journal Batch Name" := ResJnlLine."Journal Batch Name";
-        "Reason Code" := ResJnlLine."Reason Code";
-        "No. Series" := ResJnlLine."Posting No. Series";
+        "Source Code" := CourseJnlLine."Source Code";
+        "Journal Batch Name" := CourseJnlLine."Journal Batch Name";
+        "Reason Code" := CourseJnlLine."Reason Code";
+        "No. Series" := CourseJnlLine."Posting No. Series";
 
-        OnAfterCopyFromResJnlLine(Rec, ResJnlLine);
+        OnAfterCopyFromResJnlLine(Rec, CourseJnlLine);
     end;
 
     // procedure ShowDimensions()
@@ -226,7 +226,7 @@ table 50104 "Course Ledger Entry"
     // end;
 
     [IntegrationEvent(false, false)]
-    procedure OnAfterCopyFromResJnlLine(var ResLedgerEntry: Record "Course Ledger Entry"; ResJournalLine: Record "Res. Journal Line")
+    procedure OnAfterCopyFromResJnlLine(var ResLedgerEntry: Record "Course Ledger Entry"; ResJournalLine: Record "Course Journal Line")
     begin
     end;
 }

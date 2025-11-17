@@ -245,7 +245,7 @@ page 50105 "Course Ledger Entries"
 
     var
         Navigate: Page Navigate;
-        DimensionSetIDFilter: Page "Dimension Set ID Filter";
+    // DimensionSetIDFilter: Page "Dimension Set ID Filter";
 
     protected var
         Dim1Visible: Boolean;
