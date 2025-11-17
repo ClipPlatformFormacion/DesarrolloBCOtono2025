@@ -42,35 +42,35 @@ codeunit 50100 "Course Sales Management"
         if SalesLine.Type <> SalesLine.Type::Course then
             exit;
 
-        PostCourseJnlLine(SalesHeader, SalesLine, JobTaskSalesLine);
+        PostCourseJnlLine(SalesHeader, SalesLine, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode);
     end;
 
-    local procedure PostResJnlLine(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; var JobTaskSalesLine: Record "Sales Line")
+    local procedure PostCourseJnlLine(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; GenJnlLineDocNo: Code[20]; GenJnlLineExtDocNo: Code[35]; SrcCode: Code[10])
     var
-        ResJnlLine: Record "Res. Journal Line";
-        IsHandled: Boolean;
+        CourseJnlLine: Record "Course Journal Line";
+        // IsHandled: Boolean;
         ShouldExit: Boolean;
     begin
-        IsHandled := false;
-        OnBeforePostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, IsHandled, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, SalesShptHeader, ReturnRcptHeader, ResJnlPostLine);
-        if IsHandled then
-            exit;
+        // IsHandled := false;
+        // OnBeforePostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, IsHandled, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, SalesShptHeader, ReturnRcptHeader, ResJnlPostLine);
+        // if IsHandled then
+        //     exit;
 
         ShouldExit := SalesLine."Qty. to Invoice" = 0;
-        OnPostResJnlLineOnShouldExit(SalesLine, ShouldExit);
+        // OnPostResJnlLineOnShouldExit(SalesLine, ShouldExit);
         if ShouldExit then
             exit;
 
-        ResJnlLine.Init();
-        ResJnlLine.CopyFromSalesHeader(SalesHeader);
-        ResJnlLine.CopyDocumentFields(GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, SalesHeader."Posting No. Series");
-        ResJnlLine.CopyFromSalesLine(SalesLine);
-        OnPostResJnlLineOnAfterInit(ResJnlLine, SalesLine);
+        CourseJnlLine.Init();
+        CourseJnlLine.CopyFromSalesHeader(SalesHeader);
+        CourseJnlLine.CopyDocumentFields(GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, SalesHeader."Posting No. Series");
+        CourseJnlLine.CopyFromSalesLine(SalesLine);
+        // OnPostResJnlLineOnAfterInit(ResJnlLine, SalesLine);
 
-        ResJnlPostLine.RunWithCheck(ResJnlLine);
+        ResJnlPostLine.RunWithCheck(CourseJnlLine);
         if JobTaskSalesLine."Job Contract Entry No." > 0 then
             PostJobContractLine(SalesHeader, JobTaskSalesLine);
 
-        OnAfterPostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, ResJnlLine);
+        // OnAfterPostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, ResJnlLine);
     end;
 }

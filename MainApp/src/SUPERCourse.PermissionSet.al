@@ -17,5 +17,8 @@ permissionset 50100 "SUPERCourse"
         table ClipPlatform.Customer.Customer = X,
         tabledata "Course Ledger Entry" = RIMD,
         table "Course Ledger Entry" = X,
-        codeunit "Course Sales Management" = X;
+        codeunit "Course Sales Management" = X,
+        tabledata "Course Journal Line" = RIMD,
+        table "Course Journal Line" = X,
+        page "Course Ledger Entries" = X;
 }
