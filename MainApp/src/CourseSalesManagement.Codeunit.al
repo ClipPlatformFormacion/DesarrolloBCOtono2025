@@ -35,4 +35,42 @@ codeunit 50100 "Course Sales Management"
     local procedure OnAfterAssignCourseValues(var SalesLine: Record "Sales Line"; Course: Record Course; SalesHeader: Record "Sales Header")
     begin
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", OnPostSalesLineOnBeforePostSalesLine, '', false, false)]
+    local procedure "Sales-Post_OnPostSalesLineOnBeforePostSalesLine"(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; GenJnlLineDocNo: Code[20]; GenJnlLineExtDocNo: Code[35]; GenJnlLineDocType: Enum "Gen. Journal Document Type"; SrcCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; var IsHandled: Boolean; SalesLineACY: Record "Sales Line")
+    begin
+        if SalesLine.Type <> SalesLine.Type::Course then
+            exit;
+
+        PostCourseJnlLine(SalesHeader, SalesLine, JobTaskSalesLine);
+    end;
+
+    local procedure PostResJnlLine(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; var JobTaskSalesLine: Record "Sales Line")
+    var
+        ResJnlLine: Record "Res. Journal Line";
+        IsHandled: Boolean;
+        ShouldExit: Boolean;
+    begin
+        IsHandled := false;
+        OnBeforePostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, IsHandled, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, SalesShptHeader, ReturnRcptHeader, ResJnlPostLine);
+        if IsHandled then
+            exit;
+
+        ShouldExit := SalesLine."Qty. to Invoice" = 0;
+        OnPostResJnlLineOnShouldExit(SalesLine, ShouldExit);
+        if ShouldExit then
+            exit;
+
+        ResJnlLine.Init();
+        ResJnlLine.CopyFromSalesHeader(SalesHeader);
+        ResJnlLine.CopyDocumentFields(GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, SalesHeader."Posting No. Series");
+        ResJnlLine.CopyFromSalesLine(SalesLine);
+        OnPostResJnlLineOnAfterInit(ResJnlLine, SalesLine);
+
+        ResJnlPostLine.RunWithCheck(ResJnlLine);
+        if JobTaskSalesLine."Job Contract Entry No." > 0 then
+            PostJobContractLine(SalesHeader, JobTaskSalesLine);
+
+        OnAfterPostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, ResJnlLine);
+    end;
 }
