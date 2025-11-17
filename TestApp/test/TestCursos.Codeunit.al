@@ -147,7 +147,7 @@ codeunit 50152 "Test Cursos"
 
         Clear(Course);
         Course.Insert(true);
-        Course.Validate(Name, Course."No.");  // Validate Name as No. because value is not important.                
+        Course.Validate(Name, LibraryRandom.RandText(MaxStrLen(Course.Name)));
         Course.Validate(Price, LibraryRandom.RandInt(100));  // Required field - value is not important.
         Course.Validate("Gen. Prod. Posting Group", GeneralPostingSetup."Gen. Prod. Posting Group");
         Course.Validate("VAT Prod. Posting Group", VATPostingSetup."VAT Prod. Posting Group");
@@ -169,10 +169,12 @@ codeunit 50152 "Test Cursos"
     end;
 
     local procedure CreateCourseEdition(Course: Record Course) CourseEdition: Record "Course Edition"
+    var
+        LibraryRandom: Codeunit "Library - Random";
     begin
         CourseEdition.Init();
         CourseEdition.Validate("Course No.", Course."No.");
-        CourseEdition.Validate(Edition, 'Edición 1');
+        CourseEdition.Validate(Edition, LibraryRandom.RandText(MaxStrLen(CourseEdition.Edition)));
         CourseEdition.Validate("Start Date", Today() + 10);
         CourseEdition.Validate("Max. Students", 20);
         CourseEdition.Insert(true);

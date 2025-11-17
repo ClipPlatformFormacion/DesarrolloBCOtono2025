@@ -316,6 +316,7 @@ table 50105 "Course Journal Line"
     procedure CopyFromSalesLine(SalesLine: Record "Sales Line")
     begin
         "Course No." := SalesLine."No.";
+        "Course Edition" := SalesLine."Course Edition";
         Description := SalesLine.Description;
         // "Shortcut Dimension 1 Code" := SalesLine."Shortcut Dimension 1 Code";
         // "Shortcut Dimension 2 Code" := SalesLine."Shortcut Dimension 2 Code";

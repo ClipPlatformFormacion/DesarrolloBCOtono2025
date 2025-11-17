@@ -28,7 +28,7 @@ table 50104 "Course Ledger Entry"
             Caption = 'Course No.';
             TableRelation = Course;
         }
-        field(6; "Course Edition"; Code[10])
+        field(6; "Course Edition"; Code[20])
         {
             Caption = 'Course Edition';
             TableRelation = "Course Edition".Edition where("Course No." = field("Course No."));
@@ -204,7 +204,8 @@ table 50104 "Course Ledger Entry"
         "External Document No." := CourseJnlLine."External Document No.";
         "Posting Date" := CourseJnlLine."Posting Date";
         "Document Date" := CourseJnlLine."Document Date";
-        // "Course No." := ResJnlLine."Course No.";        
+        "Course No." := CourseJnlLine."Course No.";
+        "Course Edition" := CourseJnlLine."Course Edition";
         Description := CourseJnlLine.Description;
         Quantity := CourseJnlLine.Quantity;
         "Unit Price" := CourseJnlLine."Unit Price";

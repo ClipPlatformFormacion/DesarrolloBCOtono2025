@@ -53,8 +53,8 @@ codeunit 50101 "Course Jnl.-Post Line"
 
             GetGLSetup();
             ResLedgerEntry."Total Price" := Round(ResLedgerEntry."Total Price");
-            ResLedgerEntry.Quantity := -ResLedgerEntry.Quantity;
-            ResLedgerEntry."Total Price" := -ResLedgerEntry."Total Price";
+            // ResLedgerEntry.Quantity := -ResLedgerEntry.Quantity;
+            // ResLedgerEntry."Total Price" := -ResLedgerEntry."Total Price";
             ResLedgerEntry."Entry No." := NextEntryNo;
 
             OnBeforeResLedgEntryInsert(ResLedgerEntry, ResJournalLineGlobal);
