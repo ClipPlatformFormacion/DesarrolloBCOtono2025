@@ -1,8 +1,8 @@
 table 50104 "Course Ledger Entry"
 {
     Caption = 'Course Ledger Entry';
-    // DrillDownPageID = "Course Ledger Entries";
-    // LookupPageID = "Course Ledger Entries";
+    DrillDownPageID = "Course Ledger Entries";
+    LookupPageID = "Course Ledger Entries";
     DataClassification = CustomerContent;
 
     fields
