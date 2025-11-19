@@ -72,4 +72,10 @@ codeunit 50100 "Course Sales Management"
 
         // OnAfterPostResJnlLine(SalesHeader, SalesLine, JobTaskSalesLine, ResJnlLine);
     end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnAfterValidateEvent, Quantity, false, false)]
+    local procedure SalesLine_OnAfterValidateQuantity(var Rec: Record "Sales Line")
+    begin
+        Rec.CheckCourseEditionSales(Rec);
+    end;
 }
