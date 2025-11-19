@@ -22,8 +22,11 @@ page 50100 "Course List"
                 field(Price; Rec.Price) { }
                 field("Language Code"; Rec."Language Code")
                 {
-                    Visible = false;
+                    Visible = true;
                 }
+                field("Language Name"; Rec."Language Name")
+                { }
+                field(LanguageNameProcedure; GetLanguageName(Rec."Language Code")) { }
                 field("Type (Enum)"; Rec."Type (Enum)")
                 {
                     Visible = false;
@@ -72,4 +75,16 @@ page 50100 "Course List"
             }
         }
     }
+
+    procedure GetLanguageName(LanguageCode: Code[10]): Text[50]
+    var
+        Language: Record Language;
+    begin
+        Language.SetLoadFields("Name");
+        if Language.Get(LanguageCode) then
+            exit(Language.Name);
+
+        // SELECT * FROM Language WHERE Code = LanguageCode;
+        //  SELECT Name FROM Language WHERE Code = LanguageCode;
+    end;
 }

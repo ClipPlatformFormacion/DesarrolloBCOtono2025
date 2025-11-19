@@ -124,6 +124,7 @@ codeunit 50152 "Test Cursos"
         // [THEN] Se ha generado movimiento de curso
         CourseLedgerEntry.SetRange("Document No.", DocumentNo);
         LibraryAssert.AreEqual(1, CourseLedgerEntry.Count(), 'Número de movimientos incorrecto');
+        CourseLedgerEntry.SetLoadFields("Posting Date", "Course No.", "Course Edition", Description, Quantity, "Unit Price", "Total Price");
         CourseLedgerEntry.FindFirst();
         LibraryAssert.AreEqual(Today() + 1, CourseLedgerEntry."Posting Date", 'La fecha del movimiento no es correcta');
         LibraryAssert.AreEqual(Course."No.", CourseLedgerEntry."Course No.", 'El curso en el movimiento no es correcto');
@@ -132,6 +133,7 @@ codeunit 50152 "Test Cursos"
         LibraryAssert.AreEqual(SalesLine.Quantity, CourseLedgerEntry.Quantity, 'La cantidad del movimiento no es correcta');
         LibraryAssert.AreEqual(SalesLine."Unit Price", CourseLedgerEntry."Unit Price", 'El precio unitario del movimiento no es correcto');
         LibraryAssert.AreEqual(SalesLine."Line Amount", CourseLedgerEntry."Total Price", 'El precio total del movimiento no es correcto');
+        LibraryAssert.AreEqual(DocumentNo, CourseLedgerEntry."Document No.", 'El número de documento del movimiento no es correcto');
     end;
 
     local procedure CreateCourse(var Course: Record Course)

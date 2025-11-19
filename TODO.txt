@@ -1,4 +1,2 @@
-* se puede hacer que guarde el código del idioma pero que muestre la descripción?
-  en la tabla de cursos, que se vea la descripción del idioma
 * #if not CLEAN24
   #endif

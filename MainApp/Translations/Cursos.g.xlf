@@ -38,6 +38,11 @@
           <note from="Developer" annotates="general" priority="2">ESP="Cód. idioma"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Language Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3534050887 - Field 696461927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Language Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3534050887 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name</source>
           <note from="Developer" annotates="general" priority="2">ESP="Nombre"</note>

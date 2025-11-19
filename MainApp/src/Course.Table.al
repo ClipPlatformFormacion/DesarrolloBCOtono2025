@@ -51,6 +51,12 @@ table 50100 Course
             Caption = 'Language Code', Comment = 'ESP="Cód. idioma"';
             TableRelation = Language;
         }
+        field(60; "Language Name"; Text[50])
+        {
+            FieldClass = FlowField;
+            Editable = false;
+            CalcFormula = lookup(Language.Name where(Code = field("Language Code")));
+        }
         field(7; "Type (Option)"; Option)
         {
             Caption = 'Type (Option)', Comment = 'ESP="Tipo (Option)"';
