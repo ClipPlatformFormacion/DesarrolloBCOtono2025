@@ -22,7 +22,6 @@ tableextension 50100 "Sales Line" extends "Sales Line"
 
     procedure CheckCourseEditionSales(SalesLine: Record "Sales Line")
     var
-        CourseLedgerEntry: Record "Course Ledger Entry";
         CourseEdition: Record "Course Edition";
     begin
         if salesLine.Type <> salesLine.Type::Course then
@@ -34,13 +33,10 @@ tableextension 50100 "Sales Line" extends "Sales Line"
         if salesLine."Course Edition" = '' then
             exit;
 
-        CourseLedgerEntry.SetRange("Course No.", salesLine."No.");
-        CourseLedgerEntry.SetRange("Course Edition", salesLine."Course Edition");
-        CourseLedgerEntry.CalcSums(Quantity);
-
         if CourseEdition.Get(salesLine."No.", salesLine."Course Edition") then;
 
-        if (CourseLedgerEntry.Quantity + salesLine.Quantity) > CourseEdition."Max. Students" then
+        CourseEdition.CalcFields("Sales (Qty.)");
+        if (CourseEdition."Sales (Qty.)" + salesLine.Quantity) > CourseEdition."Max. Students" then
             Message('Con esta venta se superá el número máximo de alumnos');
     end;
 }
