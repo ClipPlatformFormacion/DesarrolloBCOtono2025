@@ -24,7 +24,6 @@ tableextension 50100 "Sales Line" extends "Sales Line"
     var
         CourseLedgerEntry: Record "Course Ledger Entry";
         CourseEdition: Record "Course Edition";
-        PreviousSales: Decimal;
     begin
         if salesLine.Type <> salesLine.Type::Course then
             exit;
@@ -37,14 +36,11 @@ tableextension 50100 "Sales Line" extends "Sales Line"
 
         CourseLedgerEntry.SetRange("Course No.", salesLine."No.");
         CourseLedgerEntry.SetRange("Course Edition", salesLine."Course Edition");
-        if CourseLedgerEntry.FindSet() then
-            repeat
-                PreviousSales := PreviousSales + CourseLedgerEntry.Quantity;
-            until CourseLedgerEntry.Next() = 0;
+        CourseLedgerEntry.CalcSums(Quantity);
 
         if CourseEdition.Get(salesLine."No.", salesLine."Course Edition") then;
 
-        if (PreviousSales + salesLine.Quantity) > CourseEdition."Max. Students" then
+        if (CourseLedgerEntry.Quantity + salesLine.Quantity) > CourseEdition."Max. Students" then
             Message('Con esta venta se superá el número máximo de alumnos');
     end;
 }
