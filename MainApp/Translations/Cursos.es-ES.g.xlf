@@ -493,6 +493,18 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Update Course Price - Property Caption</note>
           <target>Actualizar precio cursos</target>
         </trans-unit>
+        <trans-unit id="Report 2949567475 - NamedType 1113389480" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Old Price</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Precio Anterior"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Update Course Price - NamedType OldPriceCaption</note>
+          <target>Precio Anterior</target>
+        </trans-unit>
+        <trans-unit id="Report 2949567475 - NamedType 253704284" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Course Prices</source>
+          <note from="Developer" annotates="general" priority="2">ESP="Actualizar precio cursos"</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Update Course Price - NamedType ReportCaption</note>
+          <target>Actualizar precio cursos</target>
+        </trans-unit>
         <trans-unit id="Report 2949567475 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <note from="Developer" annotates="general" priority="2">ESP="Opciones"</note>

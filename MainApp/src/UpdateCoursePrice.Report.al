@@ -12,10 +12,12 @@ report 50100 "Update Course Price"
         {
             RequestFilterFields = "No.", Price, "Gen. Prod. Posting Group";
 
-            column(No; "No.") { }
-            column(Name; Name) { }
+            column(ReportCaption; ReportCaption) { }
+            column(OldPriceCaption; OldPriceCaption) { }
+            column(No; "No.") { IncludeCaption = true; }
+            column(Name; Name) { IncludeCaption = true; }
             column(OldPrice; OldPrice) { }
-            column(Price; Price) { }
+            column(Price; Price) { IncludeCaption = true; }
 
             trigger OnPreDataItem()
             begin
@@ -23,10 +25,14 @@ report 50100 "Update Course Price"
             end;
 
             trigger OnAfterGetRecord()
+            var
+                NewPrice: Decimal;
             begin
                 // Message('OnAfterGetRecord: %1', Course."No.");
                 OldPrice := Course.Price;
-                Course.Validate(Price, Course.Price + (Course.Price * Percentaje / 100));
+                NewPrice := Course.Price + (Course.Price * Percentaje / 100);
+                NewPrice := Round(NewPrice, 0.01);
+                Course.Validate(Price, NewPrice);
                 Course.Modify(true);
             end;
 
@@ -80,4 +86,7 @@ report 50100 "Update Course Price"
     var
         Percentaje: Decimal;
         OldPrice: Decimal;
+        // OldPriceCaption: TextConst ENU = 'Old Price', ESP = 'Precio Anterior';
+        OldPriceCaption: Label 'Old Price', comment = 'ESP="Precio Anterior"';
+        ReportCaption: Label 'Update Course Prices', comment = 'ESP="Actualizar precio cursos"';
 }
