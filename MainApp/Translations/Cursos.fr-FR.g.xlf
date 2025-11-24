@@ -18,6 +18,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Gen. Prod. Posting Group - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3534050887 - Field 696461927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Name</source>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Course - Field Language Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3534050887 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2">ESP="Nº",FRA="dsvhjdsv"</note>
