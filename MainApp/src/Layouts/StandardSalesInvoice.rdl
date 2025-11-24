@@ -8838,6 +8838,9 @@ End Function
         <Field Name="CurrencySymbol">
           <DataField>CurrencySymbol</DataField>
         </Field>
+        <Field Name="Course_Edition">
+          <DataField>Course_Edition</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
