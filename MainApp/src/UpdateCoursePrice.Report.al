@@ -3,13 +3,20 @@ report 50100 "Update Course Price"
     Caption = 'Update Course Prices', comment = 'ESP="Actualizar precio cursos"';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    ProcessingOnly = true;
+    ProcessingOnly = false;
+    DefaultRenderingLayout = RDLCLayout;
 
     dataset
     {
         dataitem(Course; Course)
         {
             RequestFilterFields = "No.", Price, "Gen. Prod. Posting Group";
+
+            column(No; "No.") { }
+            column(Name; Name) { }
+            column(OldPrice; OldPrice) { }
+            column(Price; Price) { }
+
             trigger OnPreDataItem()
             begin
                 // Message('OnPreDataItem');
@@ -18,6 +25,7 @@ report 50100 "Update Course Price"
             trigger OnAfterGetRecord()
             begin
                 // Message('OnAfterGetRecord: %1', Course."No.");
+                OldPrice := Course.Price;
                 Course.Validate(Price, Course.Price + (Course.Price * Percentaje / 100));
                 Course.Modify(true);
             end;
@@ -49,6 +57,15 @@ report 50100 "Update Course Price"
         }
     }
 
+    rendering
+    {
+        layout(RDLCLayout)
+        {
+            Type = RDLC;
+            LayoutFile = './src/Layouts/UpdateCoursePrice.rdl';
+        }
+    }
+
     trigger OnPreReport()
     begin
         if Percentaje = 0 then
@@ -62,4 +79,5 @@ report 50100 "Update Course Price"
 
     var
         Percentaje: Decimal;
+        OldPrice: Decimal;
 }
