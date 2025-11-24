@@ -4,7 +4,7 @@ report 50100 "Update Course Price"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     ProcessingOnly = false;
-    DefaultRenderingLayout = ExcelLayout;
+    DefaultRenderingLayout = WordLayout;
 
     dataset
     {
@@ -87,6 +87,11 @@ report 50100 "Update Course Price"
         {
             Type = Excel;
             LayoutFile = './src/Layouts/UpdateCoursePrice.xlsx';
+        }
+        layout(WordLayout)
+        {
+            Type = Word;
+            LayoutFile = './src/Layouts/UpdateCoursePrice.docx';
         }
     }
 
