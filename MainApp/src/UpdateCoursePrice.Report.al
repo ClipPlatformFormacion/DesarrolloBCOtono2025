@@ -4,7 +4,7 @@ report 50100 "Update Course Price"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     ProcessingOnly = false;
-    DefaultRenderingLayout = RDLCLayout;
+    DefaultRenderingLayout = ExcelLayout;
 
     dataset
     {
@@ -82,6 +82,11 @@ report 50100 "Update Course Price"
         {
             Type = RDLC;
             LayoutFile = './src/Layouts/UpdateCoursePrice.rdl';
+        }
+        layout(ExcelLayout)
+        {
+            Type = Excel;
+            LayoutFile = './src/Layouts/UpdateCoursePrice.xlsx';
         }
     }
 
