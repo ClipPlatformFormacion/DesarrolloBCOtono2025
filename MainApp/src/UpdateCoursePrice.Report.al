@@ -19,6 +19,14 @@ report 50100 "Update Course Price"
             column(OldPrice; OldPrice) { }
             column(Price; Price) { IncludeCaption = true; }
 
+            dataitem(CourseEdition; "Course Edition")
+            {
+                DataItemLinkReference = Course;
+                DataItemLink = "Course No." = field("No.");
+                column(CourseNo; "Course No.") { }
+                column(Edition; Edition) { }
+            }
+
             trigger OnPreDataItem()
             begin
                 // Message('OnPreDataItem');
@@ -61,6 +69,11 @@ report 50100 "Update Course Price"
                 }
             }
         }
+
+        trigger OnOpenPage()
+        begin
+            Percentaje := 10;
+        end;
     }
 
     rendering
