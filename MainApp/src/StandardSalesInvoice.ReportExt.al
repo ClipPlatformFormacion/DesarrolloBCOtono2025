@@ -20,5 +20,10 @@ reportextension 50100 "Standard Sales - Invoice" extends "Standard Sales - Invoi
             Type = RDLC;
             LayoutFile = './src/Layouts/StandardSalesInvoice.rdl';
         }
+        layout(CustomWord)
+        {
+            Type = Word;
+            LayoutFile = './src/Layouts/StandardSalesInvoice.docx';
+        }
     }
 }
