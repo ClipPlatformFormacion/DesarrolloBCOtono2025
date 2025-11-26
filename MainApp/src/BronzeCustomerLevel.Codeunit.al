@@ -4,4 +4,9 @@ codeunit 50103 "Bronze Customer Level" implements "ICustomer Level"
     begin
         exit(5);
     end;
+
+    procedure SetDiscount(NewDiscount: Decimal)
+    begin
+
+    end;
 }

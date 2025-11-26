@@ -4,4 +4,9 @@ codeunit 50104 "Silver Customer Level" implements "ICustomer Level"
     begin
         exit(10);
     end;
+
+    procedure SetDiscount(NewDiscount: Decimal)
+    begin
+
+    end;
 }
