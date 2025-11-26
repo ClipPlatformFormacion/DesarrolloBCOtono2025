@@ -12,21 +12,10 @@ tableextension 50107 Customer extends Customer
 
             trigger OnValidate()
             var
-                Handled: Boolean;
+                ICustomerLevel: Interface "ICustomer Level";
             begin
-                case Level of
-                    Level::" ":
-                        Rec.Validate(Discount, 0);
-                    Level::Bronze:
-                        Rec.Validate(Discount, 5);
-                    Level::Silver:
-                        Rec.Validate(Discount, 10);
-                    else begin
-                        OnValidateCustomerLevelOnBeforeUnknownLevel(Rec, Handled);
-                        if not Handled then
-                            Error('Nivel %1 desconocido', Level);
-                    end;
-                end;
+                ICustomerLevel := Rec.Level;
+                Rec.Validate(Discount, ICustomerLevel.GetDiscount());
             end;
         }
     }
