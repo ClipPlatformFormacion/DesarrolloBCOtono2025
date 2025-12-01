@@ -1,0 +1,89 @@
+@clientid = <YOUR_CLIENT_ID>
+@clientsecret = <YOUR_CLIENT_SECRET>
+@scope = https://api.businesscentral.dynamics.com/.default
+@tenant = <YOUR_TENANT_ID>
+@environment = <YOUR_ENVIRONMENT_NAME>
+
+###########################################################################
+#    ____      _                                   _        _              
+#   / ___| ___| |_    __ _  ___ ___ ___  ___ ___  | |_ ___ | | _____ _ __  
+#  | |  _ / _ \ __|  / _` |/ __/ __/ _ \/ __/ __| | __/ _ \| |/ / _ \ '_ \ 
+#  | |_| |  __/ |_  | (_| | (_| (_|  __/\__ \__ \ | || (_) |   <  __/ | | |
+#   \____|\___|\__|  \__,_|\___\___\___||___/___/  \__\___/|_|\_\___|_| |_|
+#
+###########################################################################
+
+# @name tokenrequest
+POST https://login.microsoftonline.com/{{tenant}}/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientid}}
+&client_secret={{clientsecret}}
+&scope={{scope}}
+
+###
+@token = {{tokenrequest.response.body.access_token}}
+###
+
+@baseurl = https://api.businesscentral.dynamics.com/v2.0/{{tenant}}/{{environment}}/api
+
+#######################################################################
+#    ____      _                                           _           
+#   / ___| ___| |_    ___ ___  _ __ ___  _ __   __ _ _ __ (_) ___  ___ 
+#  | |  _ / _ \ __|  / __/ _ \| '_ ` _ \| '_ \ / _` | '_ \| |/ _ \/ __|
+#  | |_| |  __/ |_  | (_| (_) | | | | | | |_) | (_| | | | | |  __/\__ \
+#   \____|\___|\__|  \___\___/|_| |_| |_| .__/ \__,_|_| |_|_|\___||___/
+#                                       |_|                            
+######################################################################
+GET {{baseurl}}/v2.0/companies
+Authorization: Bearer {{token}}
+
+
+# This information depends on the properties specified on the API Page
+@APIPublisher = clipplatform
+@APIGroup = courseManagement
+@APIVersion = v1.0
+@EntityName = course
+@EntitySetName = courses
+
+#######################################################################
+#    GET Read all existing data
+#######################################################################
+
+GET  {{baseurl}}/{{APIPublisher}}/{{APIGroup}}/{{APIVersion}}/companies(788a6508-fdb9-f011-af60-6045bdaca4d8)/{{EntitySetName}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+#######################################################################
+#    POST Insert new data
+#######################################################################
+# @name insertrequest
+POST {{baseurl}}/{{APIPublisher}}/{{APIGroup}}/{{APIVersion}}/companies(788a6508-fdb9-f011-af60-6045bdaca4d8)/{{EntitySetName}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "no": "",
+    "name": "New Course from API",
+    "Price": 300
+}
+
+###
+@systemID = {{insertrequest.response.body.systemID}}
+###
+
+#######################################################################
+#    GET Read 1 record
+#######################################################################
+
+GET  {{baseurl}}/{{APIPublisher}}/{{APIGroup}}/{{APIVersion}}/companies(788a6508-fdb9-f011-af60-6045bdaca4d8)/{{EntitySetName}}({{systemID}})
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+#######################################################################
+#    Execute Procedure on record
+#######################################################################
+POST {{baseurl}}/{{APIPublisher}}/{{APIGroup}}/{{APIVersion}}/companies(788a6508-fdb9-f011-af60-6045bdaca4d8)/{{EntitySetName}}({{systemID}})/Microsoft.NAV.UpdatePrice
+Authorization: Bearer {{token}}
+Content-Type: application/json
