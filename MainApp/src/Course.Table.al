@@ -66,6 +66,8 @@ table 50100 Course
         field(8; "Type (Enum)"; Enum "Course Type")
         {
             Caption = 'Type (Enum)', Comment = 'ESP="Tipo (Enum)"';
+            // ObsoleteState = Pending;
+            // ObsoleteReason = 'Replaced by "Type (Option)" field.';
         }
         field(56; "No. Series"; Code[20])
         {
