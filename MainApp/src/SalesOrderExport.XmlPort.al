@@ -1,10 +1,11 @@
 xmlport 50100 "Sales Order Export"
 {
-    Direction = Export;
-    Format = VariableText;
-    RecordSeparator = '<NewLine>';
-    FieldSeparator = ';';
+    Direction = Import;
+    Format = xml;
+    // RecordSeparator = '<NewLine>';
+    // FieldSeparator = ';';
     FormatEvaluate = Xml;
+    UseDefaultNamespace = true;
 
     schema
     {
