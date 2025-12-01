@@ -1,1 +1,20 @@
 https://clipplatform.com/cursos/gestion-del-esquema-de-datos-en-business-central/lecciones/gestion-del-esquema-de-datos-en-business-central/
+
+-----------------------
+
+https://businesscentralgeek.com/how-to-use-vs-code-rest-client-to-test-business-central-apis
+
+1. Install the REST Client extension for Visual Studio Code
+2. Set up Authentication (Azure and BC SaaS)
+
+    * Explained here (https://businesscentralgeek.com/how-to-use-postman-to-connect-with-business-central-apis)
+    * Go to Azure and create a new App registration
+        - Created "BC App OAuth for DesarrolloBC" on Azure
+            - Application ID: <copiar al crear>
+            - Secret Value: <copiar al crear>
+    * Go to Business Central and Register the App
+        - The page is called "Microsoft Entra Applications" instead of "Azure Active Directory Applications"
+        - We need permissions for the Project objects
+
+
+https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-develop-custom-api
