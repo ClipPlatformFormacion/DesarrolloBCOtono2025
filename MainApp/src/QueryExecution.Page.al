@@ -14,9 +14,17 @@ page 50106 "Query Execution"
             actionref(CodeExecutePromoted; CodeExecute)
             {
             }
+            actionref(XMLPortPromoted; XMLPort)
+            {
+            }
         }
         area(Processing)
         {
+            action(XMLPort)
+            {
+                ApplicationArea = All;
+                RunObject = XmlPort "Sales Order Export";
+            }
             action(Execute)
             {
                 ApplicationArea = All;
